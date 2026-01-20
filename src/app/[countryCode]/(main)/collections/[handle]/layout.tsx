@@ -18,26 +18,40 @@ interface CollectionPageLayoutProps {
 }
 
 export async function generateStaticParams() {
-  const { collections } = await getCollectionsList()
+  const { collections } = await getCollectionsList().catch(() => ({
+    collections: [],
+  }))
 
-  if (!collections) {
+  if (!collections || collections.length === 0) {
     return []
   }
 
-  const countryCodes = await listRegions().then(
-    (regions: StoreRegion[]) =>
-      regions
-        ?.map((r) => r.countries?.map((c) => c.iso_2))
+  let countryCodes: string[] = []
+
+  try {
+    const regions = await listRegions()
+    if (regions) {
+      countryCodes = regions
+        .map((r) => r.countries?.map((c) => c.iso_2))
         .flat()
-        .filter(Boolean) as string[]
-  )
+        .filter((c) => !!c) as string[]
+    }
+  } catch (error) {
+    console.warn(
+      'Failed to fetch regions during static param generation. Skipping static generation for collections.'
+    )
+  }
+
+  if (countryCodes.length === 0) {
+    return []
+  }
 
   const collectionHandles = collections.map(
     (collection: StoreCollection) => collection.handle
   )
 
   const staticParams = countryCodes
-    ?.map((countryCode: string) =>
+    .map((countryCode: string) =>
       collectionHandles.map((handle: string | undefined) => ({
         countryCode,
         handle,
