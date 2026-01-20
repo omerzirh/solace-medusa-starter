@@ -51,8 +51,9 @@ export function ProductCarousel({
                       handle: item.handle,
                       thumbnail: item.thumbnail,
                       calculatedPrice:
-                        cheapestVariant.cheapestPrice.calculated_price,
-                      salePrice: cheapestVariant.cheapestPrice.original_price,
+                        cheapestVariant.cheapestPrice?.calculated_price ?? '',
+                      salePrice:
+                        cheapestVariant.cheapestPrice?.original_price ?? '',
                     }}
                     regionId={regionId}
                   />

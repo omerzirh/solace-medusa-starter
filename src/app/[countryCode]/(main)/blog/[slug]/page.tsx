@@ -6,15 +6,31 @@ import { StoreRegion } from '@medusajs/types'
 import BlogPostTemplate from '@modules/blog/templates/blogPostTemplate'
 
 export async function generateStaticParams() {
-  const slugs = await getAllBlogSlugs()
+  const slugs = await getAllBlogSlugs().catch(() => [])
 
-  if (!slugs) {
+  if (!slugs || slugs.length === 0) {
     return []
   }
 
-  const countryCodes = await listRegions().then((regions: StoreRegion[]) =>
-    regions?.map((r) => r.countries?.map((c) => c.iso_2)).flat()
-  )
+  let countryCodes: string[] = []
+
+  try {
+    const regions = await listRegions()
+    if (regions) {
+      countryCodes = regions
+        .map((r) => r.countries?.map((c) => c.iso_2))
+        .flat()
+        .filter((c) => !!c) as string[]
+    }
+  } catch (error) {
+    console.warn(
+      'Failed to fetch regions during static param generation. Skipping static generation for blog posts.'
+    )
+  }
+
+  if (countryCodes.length === 0) {
+    return []
+  }
 
   return slugs.flatMap((slug) =>
     countryCodes.map((countryCode) => ({
