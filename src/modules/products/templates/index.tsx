@@ -80,3 +80,5 @@ const ProductTemplate: React.FC<ProductTemplateProps> = async ({
 }
 
 export default ProductTemplate
+export const dynamic = "force-dynamic"
+
