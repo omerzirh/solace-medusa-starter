@@ -10,14 +10,28 @@ import NavContent from './nav-content'
 export default async function NavWrapper(props: any) {
   const [productCategories, { collections }, strapiCollections, { products }] =
     await Promise.all([
-      listCategories(),
-      getCollectionsList(),
-      getCollectionsData(),
+      listCategories().catch(() => []),
+      getCollectionsList().catch(() => ({ collections: [] })),
+      getCollectionsData().catch(() => ({
+        attributes: {
+          Title: '',
+          Slug: '',
+          createdAt: '',
+          updatedAt: '',
+          publishedAt: '',
+          locale: '',
+          Description: '',
+          Image: { data: null },
+          Collections: [],
+        },
+      })),
       getProductsList({
         pageParam: 0,
         queryParams: { limit: 4 },
         countryCode: props.countryCode,
-      }).then(({ response }) => response),
+      })
+        .then(({ response }) => response)
+        .catch(() => ({ products: [], count: 0 })),
     ])
 
   return (
