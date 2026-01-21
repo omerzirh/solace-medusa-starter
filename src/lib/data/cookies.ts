@@ -5,14 +5,22 @@ import { cookies } from 'next/headers'
 export const getAuthHeaders = async (): Promise<
   { authorization: string } | {}
 > => {
-  const cookieStore = await cookies()
-  const token = cookieStore.get('_medusa_jwt')?.value
-
-  if (token) {
-    return { authorization: `Bearer ${token}` }
+  if (typeof window !== "undefined") {
+    return {}
   }
 
-  return {}
+  try {
+    const cookieStore = await cookies()
+    const token = cookieStore.get("_medusa_jwt")?.value
+
+    if (!token) {
+      return {}
+    }
+
+    return { authorization: `Bearer ${token}` }
+  } catch {
+    return {}
+  }
 }
 
 export const setAuthToken = async (token: string) => {
