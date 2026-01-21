@@ -38,7 +38,7 @@ export default async function Home(props: {
       countryCode: countryCode,
     }).then(({ response }) => response),
   ])
-
+  console.log(products, collectionsList)
   const region = await getRegion(countryCode)
 
   if (!products || !collectionsList || !region) {
@@ -83,7 +83,7 @@ export default async function Home(props: {
           }}
         />
       </Suspense>
-      {MidBanner && <Banner data={MidBanner} />}
+      {/* {MidBanner && <Banner data={MidBanner} />} */}
       {posts && posts.length > 0 && <ExploreBlog posts={posts} />}
     </>
   )

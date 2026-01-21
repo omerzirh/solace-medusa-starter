@@ -13,15 +13,15 @@ import {
 export const MOCK_HERO_BANNER: HeroBannerData = {
   data: {
     HeroBanner: {
-      Headline: 'Welcome to Solace',
-      Text: 'Discover our premium collection of furniture.',
+      Headline: 'Welcome to Carmela Art',
+      Text: 'Discover exquisite artworks that bring beauty to your space.',
       CTA: {
         id: 1,
         BtnText: 'Shop Now',
         BtnLink: '/store',
       },
       Image: {
-        url: 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&q=80',
+        url: 'https://ugkfivuhxnkmtcbdfiox.supabase.co/storage/v1/object/public/carmelart/Gemini_Generated_Image_8rqajm8rqajm8rqa.png',
         alternativeText: 'Hero Banner',
       },
     },
@@ -31,8 +31,8 @@ export const MOCK_HERO_BANNER: HeroBannerData = {
 export const MOCK_MID_BANNER: MidBannerData = {
   data: {
     MidBanner: {
-      Headline: 'New Arrivals',
-      Text: 'Check out our latest additions.',
+      Headline: 'New Artworks',
+      Text: 'Explore our latest artistic creations.',
       CTA: {
         id: 1,
         BtnText: 'View Collection',
@@ -93,15 +93,15 @@ export const MOCK_ABOUT_US: AboutUsData = {
     Banner: [],
     OurStory: {
       id: 1,
-      Title: 'Our Story',
-      Text: 'Solace was born from the idea that furniture should be both beautiful and functional.',
+      Title: 'Meet Zeynep',
+      Text: "I’m Zeynep, a 27-year-old freelance illustrator with a heart full of stories and hands ready to bring them to life. My work is a celebration of warmth and imagination, crafting vibrant illustrations that do more than just decorate—they speak. From the whimsical pages of children's books to the curated corners of interior design, my focus is on visual storytelling that resonates. I create with a singular intention: to set a mood, inspire creativity, and infuse your space with a distinct, artistic soul that feels uniquely yours.",
       Image: {
         id: 1,
         name: 'story',
         width: 800,
         height: 600,
         size: 100,
-        url: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&q=80',
+        url: 'https://ugkfivuhxnkmtcbdfiox.supabase.co/storage/v1/object/public/carmelart/zey-logo.jpg',
         alternativeText: 'Our Story',
       },
     },
@@ -111,8 +111,8 @@ export const MOCK_ABOUT_US: AboutUsData = {
       Tile: [
         {
           id: 1,
-          Title: 'Quality',
-          Text: 'We use only the finest materials.',
+          Title: 'Authentic Art',
+          Text: 'Every piece is carefully curated for quality and authenticity.',
           Image: {
             id: 2,
             name: 'quality',
@@ -127,8 +127,8 @@ export const MOCK_ABOUT_US: AboutUsData = {
     },
     OurCraftsmanship: {
       id: 1,
-      Title: 'Craftsmanship',
-      Text: 'Every piece is handmade with care.',
+      Title: 'Artistry',
+      Text: 'Each artwork is selected for its unique character and artistic excellence.',
       Image: {
         id: 3,
         name: 'craft',
@@ -154,7 +154,7 @@ export const MOCK_FAQ: FAQData = {
           {
             id: 1,
             Title: 'Do you ship internationally?',
-            Text: 'Yes, we ship to most countries.',
+            Text: 'Yes, we carefully ship artworks worldwide with secure packaging.',
           },
         ],
       },
@@ -171,9 +171,9 @@ export const MOCK_CONTENT_PAGE: ContentPageData = {
 }
 
 export const MOCK_BLOG_POST: BlogPost = {
-  Title: 'Example Post',
-  Slug: 'example-post',
-  Content: 'This is an example blog post.',
+  Title: 'The Art of Collecting',
+  Slug: 'art-of-collecting',
+  Content: 'Discover tips and insights about building your art collection.',
   FeaturedImage: {
     url: 'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&q=80',
     alternativeText: 'Example',

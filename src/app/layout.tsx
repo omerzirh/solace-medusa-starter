@@ -23,7 +23,7 @@ export default function RootLayout(props: { children: React.ReactNode }) {
       <body className="text-basic-primary font-serif">
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="light"
           enableSystem
         // disableTransitionOnChange
         >

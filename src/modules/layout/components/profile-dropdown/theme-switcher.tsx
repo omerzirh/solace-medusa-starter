@@ -9,18 +9,18 @@ export function ThemeSwitcher() {
     <Button
       variant="text"
       onClick={() => {
-        setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
+        setTheme(resolvedTheme === 'light' ? 'dark' : 'light')
       }}
       className="w-full justify-start rounded-none p-0 hover:bg-hover"
     >
       <div className="flex items-center gap-4 p-4 text-lg">
-        {resolvedTheme === 'dark' ? (
+        {resolvedTheme === 'light' ? (
           <>
-            <SunIcon /> Switch to light mode
+            <MoonIcon /> Switch to dark mode
           </>
         ) : (
           <>
-            <MoonIcon /> Switch to dark mode
+            <SunIcon /> Switch to light mode
           </>
         )}
       </div>
