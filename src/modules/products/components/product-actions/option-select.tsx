@@ -46,6 +46,27 @@ const OptionSelect: React.FC<OptionSelectProps> = ({
           const image = color?.Image
           const hex = color?.Color
 
+          if (!image && !hex) {
+            return (
+              <button
+                onClick={() => updateOption(option.id, v)}
+                key={v}
+                className={cn(
+                  'border-primary min-w-[50px] border px-4 py-2 text-sm transition-all duration-200',
+                  {
+                    'border-basic-primary bg-basic-primary text-white':
+                      v === current,
+                    'hover:border-basic-primary': v !== current,
+                  }
+                )}
+                disabled={disabled}
+                data-testid="option-button"
+              >
+                {v}
+              </button>
+            )
+          }
+
           return image ? (
             <button
               onClick={() => updateOption(option.id, v)}

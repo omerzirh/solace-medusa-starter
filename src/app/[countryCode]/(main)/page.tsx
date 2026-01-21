@@ -18,9 +18,9 @@ import { ProductCarousel } from '@modules/products/components/product-carousel'
 import SkeletonProductsCarousel from '@modules/skeletons/templates/skeleton-products-carousel'
 
 export const metadata: Metadata = {
-  title: 'Solace Medusa Starter Template',
+  title: 'Carmela Art | Premium Art Prints',
   description:
-    'A performant frontend ecommerce starter template with Next.js 14 and Medusa 2.0.',
+    'Discover curated art prints at Carmela Art. Available with premium framing options.',
 }
 
 export default async function Home(props: {
@@ -76,9 +76,9 @@ export default async function Home(props: {
           testId="our-bestsellers-section"
           products={products}
           regionId={region.id}
-          title="Our bestsellers"
+          title="Featured Artworks"
           viewAll={{
-            link: '/shop',
+            link: '/store',
             text: 'View all',
           }}
         />
